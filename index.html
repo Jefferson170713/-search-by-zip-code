@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser"></script>
+    <script src="./scripts/script.js"></script>
+    <title>CEP</title>
 </head>
-<body>
-    
+<body class="bg-slate-100 flex items-center justify-center min-h-screen antialiased">
+
+    <main class="w-full max-w-md bg-white p-8 rounded-xl shadow-lg m-4">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-slate-800">Consultar CEP</h1>
+            <p class="text-slate-500 text-sm mt-1">Digite o CEP para buscar o endereço</p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+            <div>
+                <label for="cep" class="sr-only">CEP</label>
+                <input 
+                    type="text" 
+                    id="cep" 
+                    placeholder="00000-000"
+                    maxlength="9"
+                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-slate-400"
+                >
+                <p id="mensagem-erro" class="hidden text-red-500 text-xs mt-1 pl-1">CEP inválido ou não encontrado.</p>
+            </div>
+
+            <button 
+                id="btn-buscar"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 shadow-sm"
+            >
+                Buscar Endereço
+            </button>
+        </div>
+
+        <div id="resultado" class="hidden mt-6 pt-6 border-t border-slate-100 space-y-3">
+            
+            <div class="flex justify-between items-start">
+                <span class="text-slate-500 text-sm">Rua/Logradouro:</span>
+                <span id="logradouro" class="font-medium text-slate-800 text-right max-w-[60%]"></span>
+            </div>
+
+            <div class="flex justify-between items-start">
+                <span class="text-slate-500 text-sm">Bairro:</span>
+                <span id="bairro" class="font-medium text-slate-800 text-right"></span>
+            </div>
+
+            <div class="flex justify-between items-start">
+                <span class="text-slate-500 text-sm">Cidade:</span>
+                <span id="localidade" class="font-medium text-slate-800 text-right"></span>
+            </div>
+
+            <div class="flex justify-between items-start">
+                <span class="text-slate-500 text-sm">Estado:</span>
+                <span id="uf" class="font-medium text-slate-800 text-right"></span>
+            </div>
+
+        </div>
+
+    </main>
+
 </body>
 </html>
